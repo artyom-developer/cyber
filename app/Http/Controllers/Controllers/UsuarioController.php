@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Usuarios;
-use Log;
+
 class UsuarioController extends Controller
 {
     //
@@ -40,15 +40,6 @@ class UsuarioController extends Controller
       return view("usuario/edit",[
         'usuario'=>$usuario
       ]);
-
-    }
-
-    public function delete(Request $request){
-
-      $usuario = Usuarios::where("id",$request['id'])
-      ->delete();
-
-      return $this->listado();
 
     }
 
@@ -87,9 +78,18 @@ class UsuarioController extends Controller
 
     public function update(Request $request)
     {
-         $user = Usuarios::
-         where('id',$request['id'])
-         ->update([
+      Validator::make($request->all(), [
+          'nombre' => ['required', 'string', 'max:255'],
+          'apellido' => ['required', 'string', 'max:255'],
+          'fecha_nacimiento' => ['required' ],
+          'estrato' => ['required' ],
+          'telefono' => ['required' ],
+          'ciudad' => ['required', 'string', 'max:255'],
+          'direccion' => ['required', 'string', 'max:255'],
+          'genero' => ['required', 'string', 'max:255'],
+      ]);
+
+         $user = Usuarios::create([
             'email' => $request['email'],
             'nombre' => $request['nombre'],
             'apellido' => $request['apellido'],
@@ -102,8 +102,9 @@ class UsuarioController extends Controller
             'direccion' => $request['direccion'],
             'ubicacion' => $request['ubicacion'],
             'genero' => $request['genero'],
+
         ]);
 
-        return $this->edit($request['id']);
+        return $this->get($user->id);
     }
 }

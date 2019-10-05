@@ -72,6 +72,39 @@
             </div>
         </nav>
 
+
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+              <div class="sidebar-sticky" style="margin-top: 25px; background-color: white;position: absolute; width: 100%; border: 1px solid gray;">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                      <span data-feather="home"></span>
+                      Inicio <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span data-feather="file"></span>
+                      Acceso Internet
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/usuario/list') }}">
+                      <span data-feather="shopping-cart"></span>
+                      Usuarios
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span data-feather="users"></span>
+                      Calendario
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
         <main class="py-4">
             @yield('content')
         </main>

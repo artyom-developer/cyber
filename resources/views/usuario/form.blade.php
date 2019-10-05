@@ -44,7 +44,6 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,7 +56,7 @@
                             <label for="genero" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Género') }}</label>
 
                             <div class="col-md-6  @error('genero') is-invalid @enderror" name="genero"  for="genero">
-                              <select class="form-control"  >
+                              <select class="form-control" name="genero" >
                                 <option value="Hombre">Hombre</option>
                                 <option value="Mujer">Mujer</option>
                               </select>
@@ -75,10 +74,9 @@
                             <label for="tipo_doc" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de Documento') }}</label>
 
                             <div class="col-md-6  @error('tipo_doc') is-invalid @enderror" name="tipo_doc"  for="tipo_doc">
-                              <select class="form-control"  >
+                              <select class="form-control"  name="tipo_doc">
                                 <option value="CC" selected>CC</option>
                               </select>
-
                                 @error('tipo_doc')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -169,7 +167,7 @@
                             <label for="ubicacion" class="col-md-4 col-form-label text-md-right">{{ __('Ubicacion') }}</label>
 
                             <div class="col-md-6  @error('ubicacion') is-invalid @enderror" name="ubicacion"  for="ubicacion">
-                              <select class="form-control"  >
+                              <select class="form-control" name="ubicacion"  >
                                 <option value="Rural">Rural</option>
                                 <option value="Urbano">Urbano</option>
                               </select>
